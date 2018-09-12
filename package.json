@@ -14,6 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.4.1",
-    "commander": "^2.18.0"
+    "commander": "^2.18.0",
+    "koa": "^2.5.2",
+    "koa-range": "^0.3.0",
+    "koa-static": "^5.0.0",
+    "qrcode-terminal": "^0.12.0"
   }
 }
