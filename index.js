@@ -2,12 +2,10 @@ const program = require('commander')
 const chalk = require('chalk')
 const commands = require('./commands')
 
-program
-  .version(require('./package').version)
-  .usage('<command> [options]')
+program.version(require('./package').version).usage('<command> [options]')
 
-for (let key in commands) {
-  let one = commands[key]
+for (const key in commands) {
+  const one = commands[key]
   program
     .command(`${key} [arg]`)
     .description(one.desc || '')

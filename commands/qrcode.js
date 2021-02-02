@@ -1,4 +1,3 @@
-
 const qrTerminal = require('qrcode-terminal')
 
 function qrcode(msg) {
@@ -7,5 +6,5 @@ function qrcode(msg) {
 
 module.exports = {
   desc: 'just a qrcode',
-  func: qrcode
+  func: qrcode,
 }

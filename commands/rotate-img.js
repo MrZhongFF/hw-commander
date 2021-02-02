@@ -3,18 +3,18 @@ const path = require('path')
 const gm = require('gm')
 /**
  * 根据图片 exif 信息，旋转图片
- * @param {*} msg 
+ * @param {*} msg
  */
 async function rotate(msg) {
   const cwd = process.cwd()
   const pics = glob.sync('**/*.{jpg,jpeg}', {
-    cwd
+    cwd,
   })
   // console.log('pics', pics)
   // pics.forEach((item) => {
 
   // })
-  for (let i = 0; i<pics.length; i++) {
+  for (let i = 0; i < pics.length; i++) {
     const pic = pics[i]
     const input = path.join(cwd, pic)
     const or = await getOrientation(input)
@@ -50,12 +50,12 @@ async function rotate(msg) {
       const ext = path.extname(input)
       const name = path.basename(input)
       const dir = path.dirname(input)
-      const outName = name.replace(ext, '') + '-rotated' + ext
+      const outName = `${name.replace(ext, '')}-rotated${ext}`
       const output = path.resolve(dir, outName)
       gm(input)
         .autoOrient()
         .quality(80)
-        .write(input, function (err) {
+        .write(input, (err) => {
           if (err) {
             reject(err)
           } else {
@@ -64,10 +64,9 @@ async function rotate(msg) {
         })
     })
   }
-
 }
 
 module.exports = {
   desc: 'rotate webp',
-  func: rotate
+  func: rotate,
 }

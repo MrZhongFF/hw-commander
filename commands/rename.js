@@ -13,17 +13,20 @@ function rename() {
   })
 
   function parseOneFolder(item) {
-    let innerPath = path.join(cwd, item)
-    let dirs = fs.readdirSync(innerPath)
+    const innerPath = path.join(cwd, item)
+    const dirs = fs.readdirSync(innerPath)
     dirs.forEach((dir) => {
       if (dir.indexOf('.') === 0) {
         return
       }
-      let files = fs.readdirSync(path.join(cwd, item, dir))
+      const files = fs.readdirSync(path.join(cwd, item, dir))
       files.forEach((file) => {
-        let outName = `${item}-${dir}-${file}`
-        let outPath = path.join(cwd, 'out', outName)
-        fs.writeFileSync(outPath, fs.readFileSync(path.join(cwd, item, dir, file)))
+        const outName = `${item}-${dir}-${file}`
+        const outPath = path.join(cwd, 'out', outName)
+        fs.writeFileSync(
+          outPath,
+          fs.readFileSync(path.join(cwd, item, dir, file))
+        )
       })
     })
   }

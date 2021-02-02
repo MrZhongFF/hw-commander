@@ -11,7 +11,11 @@ function getIPv4IPAddress() {
       const iface = ifaces[prop]
 
       iface.every((eachAlias, j, all) => {
-        if (eachAlias.family === 'IPv4' && !eachAlias.internal && eachAlias.address !== '127.0.0.1') {
+        if (
+          eachAlias.family === 'IPv4' &&
+          !eachAlias.internal &&
+          eachAlias.address !== '127.0.0.1'
+        ) {
           result = eachAlias
           return false
         }
@@ -28,8 +32,8 @@ function getIPv4IPAddress() {
 }
 
 // 在终端生成二维码
-function outputQRCodeOnTerminal (text) {
-  console.info(``)
+function outputQRCodeOnTerminal(text) {
+  console.info('')
   console.info(`生成HTTP服务器的二维码: ${text}`)
   qrTerminal.generate(text, { small: true })
 }

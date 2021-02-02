@@ -14,7 +14,7 @@ function isDir(dir) {
 // 删除非 jpg 文件
 function removeOtherFile(dir) {
   const files = glob.sync('!(**.jpg)', {
-    cwd: dir
+    cwd: dir,
   })
   files.forEach((item) => {
     const full = path.join(dir, item)
@@ -45,6 +45,6 @@ function main(dir) {
 }
 
 module.exports = {
-    desc: 'remove none jpg',
-    func: main,
+  desc: 'remove none jpg',
+  func: main,
 }
