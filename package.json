@@ -15,9 +15,18 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.18.0",
+    "exif": "^0.6.0",
+    "fs-extra": "^9.0.0",
+    "glob": "^7.1.6",
+    "gm": "^1.23.1",
+    "http-proxy": "^1.18.1",
+    "images": "^3.2.3",
     "koa": "^2.5.2",
+    "koa-proxies": "^0.11.0",
     "koa-range": "^0.3.0",
     "koa-static": "^5.0.0",
-    "qrcode-terminal": "^0.12.0"
+    "node-fetch": "^2.6.1",
+    "qrcode-terminal": "^0.12.0",
+    "webp-converter": "^2.3.0"
   }
 }
