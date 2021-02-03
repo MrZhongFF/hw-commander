@@ -1,6 +1,6 @@
 const fetch = require('node-fetch')
 
-async function main(msg) {
+async function main() {
   return fetch('http://localhost:8140/peoplenewsApi/thirdservice', {
     headers: {
       accept: 'application/json, text/plain, */*',

@@ -1,6 +1,5 @@
 const Koa = require('koa')
-const path = require('path')
-const static = require('koa-static')
+const staticKoa = require('koa-static')
 const utils = require('../utils/utils')
 const range = require('koa-range')
 const proxy = require('koa-proxies')
@@ -32,7 +31,7 @@ module.exports = {
 
     app.use(range)
 
-    app.use(static(staticPath))
+    app.use(staticKoa(staticPath))
 
     app.use(async (ctx) => {
       // ctx.body = 'hello world'

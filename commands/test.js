@@ -1,6 +1,6 @@
+const crypto = require('crypto')
 function test(msg) {
   console.log('test:', msg)
-  const crypto = require('crypto')
   console.log(crypto.getHashes())
 
   const md5 = crypto.createHash('md5')

@@ -10,7 +10,7 @@ function getIPv4IPAddress() {
     if (Object.prototype.hasOwnProperty.call(ifaces, prop)) {
       const iface = ifaces[prop]
 
-      iface.every((eachAlias, j, all) => {
+      iface.every((eachAlias) => {
         if (
           eachAlias.family === 'IPv4' &&
           !eachAlias.internal &&
@@ -22,7 +22,7 @@ function getIPv4IPAddress() {
         return true
       })
 
-      if (result !== void 0) {
+      if (result !== undefined) {
         break
       }
     }
