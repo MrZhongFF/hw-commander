@@ -1,18 +1,17 @@
 const program = require('commander')
-const chalk = require('chalk')
 const commands = require('./commands')
 
 program.version(require('./package').version).usage('<command> [options]')
 
-for (const key in commands) {
+Object.keys(commands).forEach((key) => {
   const one = commands[key]
   program
     .command(`${key} [arg]`)
     .description(one.desc || '')
-    .action((arg, cmd) => {
+    .action((arg) => {
       one.func(arg)
     })
-}
+})
 
 program.parse(process.argv)
 

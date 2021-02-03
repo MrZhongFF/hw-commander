@@ -1,15 +1,15 @@
 const Koa = require('koa')
 const staticKoa = require('koa-static')
-const utils = require('../utils/utils')
 const range = require('koa-range')
 const proxy = require('koa-proxies')
+const utils = require('../utils/utils')
 
 /**
  * 开启静态文件服务器，允许配置代理
  */
 module.exports = {
   desc: 'server',
-  func: function () {
+  func () {
     const app = new Koa()
     app.on('error', (err) => {
       console.log('server error', err)
@@ -44,8 +44,8 @@ module.exports = {
 
     const port = 8008
     app.listen(port, () => {
-      let ip = utils.getIPv4IPAddress()
-      let url = `http://${ip}:${port}`
+      const ip = utils.getIPv4IPAddress()
+      const url = `http://${ip}:${port}`
       utils.outputQRCodeOnTerminal(url)
     })
   },

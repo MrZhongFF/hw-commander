@@ -1,4 +1,5 @@
 const crypto = require('crypto')
+
 function test(msg) {
   console.log('test:', msg)
   console.log(crypto.getHashes())

@@ -6,27 +6,25 @@ function getIPv4IPAddress() {
   const ifaces = os.networkInterfaces()
   let result
 
-  for (const prop in ifaces) {
-    if (Object.prototype.hasOwnProperty.call(ifaces, prop)) {
-      const iface = ifaces[prop]
-
-      iface.every((eachAlias) => {
-        if (
-          eachAlias.family === 'IPv4' &&
-          !eachAlias.internal &&
-          eachAlias.address !== '127.0.0.1'
-        ) {
-          result = eachAlias
-          return false
-        }
-        return true
-      })
-
-      if (result !== undefined) {
-        break
+  const arr = Object.entries(ifaces)
+  arr.every(([, iface]) => {
+    iface.every((eachAlias) => {
+      if (
+        eachAlias.family === 'IPv4' &&
+        !eachAlias.internal &&
+        eachAlias.address !== '127.0.0.1'
+      ) {
+        result = eachAlias
+        return false
       }
+      return true
+    })
+
+    if (result !== undefined) {
+      return false
     }
-  }
+    return true
+  })
 
   return result && result.address
 }

@@ -1,5 +1,4 @@
 const webp = require('webp-converter')
-const glob = require('glob')
 const path = require('path')
 
 // 将 webp 图片转换成 jpg
@@ -20,7 +19,7 @@ async function convert(msg) {
       console.log('ok', res, res.status)
     })
     .catch((e) => {
-      console.log('fail', e, pic)
+      console.log('fail', e)
     })
 }
 

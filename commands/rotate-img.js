@@ -5,15 +5,11 @@ const gm = require('gm')
  * 根据图片 exif 信息，旋转图片
  * @param {*} msg
  */
-async function rotate(msg) {
+async function rotate() {
   const cwd = process.cwd()
   const pics = glob.sync('**/*.{jpg,jpeg}', {
     cwd,
   })
-  // console.log('pics', pics)
-  // pics.forEach((item) => {
-
-  // })
   for (let i = 0; i < pics.length; i++) {
     const pic = pics[i]
     const input = path.join(cwd, pic)
