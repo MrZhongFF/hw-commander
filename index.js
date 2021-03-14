@@ -9,7 +9,7 @@ Object.keys(commands).forEach((key) => {
     .command(`${key} [arg]`)
     .description(one.desc || '')
     .action((arg) => {
-      one.func(arg)
+      return one.func(arg)
     })
 })
 
