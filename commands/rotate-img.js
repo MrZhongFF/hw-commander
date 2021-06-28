@@ -14,6 +14,7 @@ async function rotate() {
     const pic = pics[i]
     const input = path.join(cwd, pic)
     const or = await getOrientation(input)
+    console.log('or', or)
     if (typeof or !== 'undefined') {
       // https://www.cnblogs.com/whlives/p/4554424.html
       if (parseInt(or) !== 1) {

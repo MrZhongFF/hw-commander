@@ -17,7 +17,7 @@ function shouldRemove(input) {
   }
   const ext = path.extname(input).slice(1)
   // 基于后缀判断是否是图片
-  const exts = ['jgp', 'jpeg', 'png', 'gif']
+  const exts = ['jpg', 'jpeg', 'png', 'gif']
   // 非图片，删除
   if (!exts.includes(ext)) {
     return true
@@ -48,7 +48,7 @@ async function main(msg) {
     const full = path.resolve(cwd, item)
     const newPath = path.resolve(recyclePath, item)
     if (shouldRemove(full)) {
-      // console.log('rm', full)
+      console.log('rm', full)
       // fs.unlinkSync(full)
       fse.moveSync(full, newPath, { overwrite: true })
     }

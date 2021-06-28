@@ -9,7 +9,7 @@ const utils = require('../utils/utils')
  */
 module.exports = {
   desc: 'server',
-  func () {
+  func (staticDir) {
     const app = new Koa()
     app.on('error', (err) => {
       console.log('server error', err)
@@ -27,7 +27,7 @@ module.exports = {
       })
     )
 
-    const staticPath = process.cwd()
+    const staticPath = staticDir || process.cwd()
 
     app.use(range)
 
@@ -42,7 +42,7 @@ module.exports = {
       }
     })
 
-    const port = 8008
+    const port = 8888
     app.listen(port, () => {
       const ip = utils.getIPv4IPAddress()
       const url = `http://${ip}:${port}`

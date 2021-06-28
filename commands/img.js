@@ -19,7 +19,8 @@ function getExif(src) {
 }
 
 async function main(msg) {
-  const src = path.join(dir, '1.jpeg')
+  // const src = path.join(dir, '1.jpeg')
+  const src = '/Users/versace/Downloads/abc.jpeg'
   getExif(src)
   return
   const imgs = glob.sync('*.jpeg', {
